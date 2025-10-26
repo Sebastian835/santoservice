@@ -1,0 +1,1030 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Santos Services - More than service, we add value to your space</title>
+    <link rel="icon" href="./img/logo.png">
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <style>
+        :root {
+            --navy: #0a1929;
+            --blue: #2196f3;
+            --cyan: #00bcd4;
+            --light: #f5f7fa;
+            --white: #ffffff;
+            --gray: #64748b;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: "Inter", sans-serif;
+            background: var(--white);
+            color: var(--navy);
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, h4 {
+            font-family: "Space Grotesk", sans-serif;
+        }
+        
+        /* TOP NAV */
+        .top-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 0;
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.05);
+        }
+        
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            text-decoration: none;
+        }
+        
+        .nav-logo img {
+            height: 45px;
+        }
+        
+        .nav-logo span {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--navy);
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+        
+        .nav-links a {
+            color: var(--navy);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: var(--cyan);
+        }
+        
+        .nav-cta {
+            background: linear-gradient(135deg, var(--cyan), var(--blue));
+            color: white;
+            padding: 0.8rem 1.8rem;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.3s;
+        }
+        
+        .nav-cta:hover {
+            transform: translateY(-2px);
+            color: white;
+        }
+        
+        /* HERO SPLIT */
+        .hero-split {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            min-height: 100vh;
+            margin-top: 70px;
+        }
+        
+        .hero-left {
+            background: linear-gradient(135deg, var(--navy) 0%, #1a2942 100%);
+            padding: 6rem 5rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-left::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(0, 188, 212, 0.1), transparent 70%);
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(0, 188, 212, 0.1);
+            border: 1px solid rgba(0, 188, 212, 0.3);
+            padding: 0.6rem 1.5rem;
+            border-radius: 50px;
+            color: var(--cyan);
+            font-size: 0.85rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .hero-left h1 {
+            font-size: 4rem;
+            font-weight: 800;
+            color: white;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            letter-spacing: -2px;
+        }
+        
+        .hero-left .gradient-text {
+            background: linear-gradient(135deg, var(--cyan), var(--blue));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .hero-tagline {
+            font-size: 1.4rem;
+            color: var(--cyan);
+            font-style: italic;
+            margin-bottom: 1.5rem;
+        }
+        
+        .hero-left p {
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.8;
+            margin-bottom: 2.5rem;
+        }
+        
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        
+        .btn-hero-primary {
+            background: linear-gradient(135deg, var(--cyan), var(--blue));
+            color: white;
+            padding: 1.2rem 2.5rem;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s;
+            box-shadow: 0 10px 30px rgba(0, 188, 212, 0.3);
+        }
+        
+        .btn-hero-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(0, 188, 212, 0.4);
+            color: white;
+        }
+        
+        .btn-hero-outline {
+            background: transparent;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            color: white;
+            padding: 1.2rem 2.5rem;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        
+        .btn-hero-outline:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: var(--cyan);
+            color: var(--cyan);
+        }
+        
+        .hero-right {
+            background: var(--light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 3rem;
+            position: relative;
+        }
+        
+        .hero-image {
+            width: 100%;
+            max-width: 550px;
+            border-radius: 30px;
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.15);
+        }
+        
+        /* STATS */
+        .stats-section {
+            background: white;
+            padding: 4rem 0;
+            box-shadow: 0 5px 30px rgba(0, 0, 0, 0.05);
+        }
+        
+        .stats-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 3rem;
+        }
+        
+        .stat-box {
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 3.5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--cyan), var(--blue));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: block;
+            font-family: "Space Grotesk", sans-serif;
+        }
+        
+        .stat-label {
+            font-size: 1rem;
+            color: var(--gray);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 600;
+        }
+        
+        /* FEATURES */
+        .features-section {
+            padding: 8rem 2rem;
+            background: var(--light);
+        }
+        
+        .container-custom {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 5rem;
+        }
+        
+        .section-label {
+            font-size: 0.9rem;
+            color: var(--blue);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 1rem;
+        }
+        
+        .section-title {
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--navy);
+            margin-bottom: 1rem;
+            letter-spacing: -1px;
+        }
+        
+        .section-subtitle {
+            font-size: 1.2rem;
+            color: var(--gray);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .feature-card {
+            background: white;
+            padding: 3rem;
+            border-radius: 24px;
+            transition: all 0.4s;
+            border: 2px solid transparent;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+            border-color: var(--cyan);
+        }
+        
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--cyan), var(--blue));
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.2rem;
+            color: white;
+            margin-bottom: 2rem;
+        }
+        
+        .feature-card h4 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 1rem;
+        }
+        
+        .feature-card p {
+            color: var(--gray);
+            line-height: 1.7;
+        }
+        
+        /* SERVICES */
+        .services-section {
+            padding: 8rem 2rem;
+            background: white;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .service-card {
+            background: var(--light);
+            padding: 2.5rem;
+            border-radius: 24px;
+            transition: all 0.4s;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 6px;
+            background: linear-gradient(90deg, var(--cyan), var(--blue));
+            transform: scaleX(0);
+            transition: all 0.4s;
+        }
+        
+        .service-card:hover::before {
+            transform: scaleX(1);
+        }
+        
+        .service-card:hover {
+            background: white;
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+        }
+        
+        .service-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, var(--navy), #334155);
+            border-radius: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: var(--cyan);
+            margin-bottom: 1.5rem;
+        }
+        
+        .service-card h4 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 1.5rem;
+        }
+        
+        .service-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .service-list li {
+            padding: 0.8rem 0;
+            padding-left: 2rem;
+            position: relative;
+            color: var(--gray);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+        
+        .service-list li:last-child {
+            border-bottom: none;
+        }
+        
+        .service-list li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 8px;
+            height: 8px;
+            background: var(--cyan);
+            border-radius: 50%;
+        }
+        
+        /* ABOUT */
+        .about-section {
+            padding: 8rem 2rem;
+            background: var(--navy);
+            color: white;
+        }
+        
+        .about-content h2 {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 2rem;
+            letter-spacing: -1px;
+        }
+        
+        .about-content p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 2rem;
+        }
+        
+        .mv-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .mv-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            padding: 2rem;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .mv-card h5 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: var(--cyan);
+        }
+        
+        /* GALLERY */
+        .gallery-section {
+            padding: 8rem 2rem;
+            background: var(--light);
+        }
+        
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+        
+        .gallery-item {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: all 0.4s;
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            transition: all 0.4s;
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+        
+        /* CONTACT */
+        .contact-section {
+            padding: 8rem 2rem;
+            background: white;
+        }
+        
+        .contact-wrapper {
+            background: var(--navy);
+            border-radius: 30px;
+            overflow: hidden;
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.2);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+        }
+        
+        .contact-left {
+            padding: 5rem;
+            color: white;
+        }
+        
+        .contact-left h2 {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 2rem;
+        }
+        
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: start;
+            gap: 1.5rem;
+        }
+        
+        .contact-icon {
+            width: 60px;
+            height: 60px;
+            background: rgba(0, 188, 212, 0.1);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: var(--cyan);
+            flex-shrink: 0;
+        }
+        
+        .contact-item h5 {
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: var(--cyan);
+        }
+        
+        .contact-item p,
+        .contact-item a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+        }
+        
+        .contact-item a:hover {
+            color: var(--cyan);
+        }
+        
+        .contact-right iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+        
+        /* FOOTER */
+        .footer {
+            background: #050a14;
+            color: rgba(255, 255, 255, 0.7);
+            padding: 5rem 2rem 2rem;
+        }
+        
+        .footer-grid {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+        
+        .footer h5 {
+            color: white;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+        }
+        
+        .footer-links {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+        
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.6);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: var(--cyan);
+        }
+        
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 2rem;
+            text-align: center;
+            color: rgba(255, 255, 255, 0.5);
+        }
+        
+        /* RESPONSIVE */
+        @media (max-width: 992px) {
+            .hero-split {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero-left {
+                padding: 4rem 2rem;
+            }
+            
+            .hero-left h1 {
+                font-size: 2.5rem;
+            }
+            
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .contact-wrapper {
+                grid-template-columns: 1fr;
+            }
+            
+            .mv-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- TOP NAV -->
+    <nav class="top-nav">
+        <div class="nav-container">
+            <a href="#" class="nav-logo">
+                <img src="./img/logo.png" alt="Santos Services">
+                <span>SANTOS</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <a href="#contact" class="nav-cta">Get Quote</a>
+        </div>
+    </nav>
+
+    <!-- HERO SPLIT -->
+    <section id="home" class="hero-split">
+        <div class="hero-left">
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <i class="fas fa-map-marker-alt"></i>
+                    ESCONDIDO, CA 92027
+                </div>
+                <h1>
+                    Professional <span class="gradient-text">Cleaning</span> & Remodeling
+                </h1>
+                <p class="hero-tagline">
+                    "More than service, we add value to your space"
+                </p>
+                <p>
+                    Reliable residential cleaning solutions focused on organization, freshness, 
+                    and visible results. Complete remodeling, maintenance, and cleaning services.
+                </p>
+                <div class="hero-buttons">
+                    <a href="#contact" class="btn-hero-primary">
+                        <i class="fas fa-phone-alt"></i>
+                        Get Free Quote
+                    </a>
+                    <a href="#services" class="btn-hero-outline">
+                        View Services
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="hero-right">
+            <img src="./img/hero.png" alt="Professional Cleaning" class="hero-image">
+        </div>
+    </section>
+
+    <!-- STATS -->
+    <section class="stats-section">
+        <div class="stats-container">
+            <div class="stat-box">
+                <span class="stat-number">6+</span>
+                <span class="stat-label">Years Experience</span>
+            </div>
+            <div class="stat-box">
+                <span class="stat-number">100%</span>
+                <span class="stat-label">Quality Service</span>
+            </div>
+            <div class="stat-box">
+                <span class="stat-number">24/7</span>
+                <span class="stat-label">Support</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- FEATURES -->
+    <section class="features-section">
+        <div class="container-custom">
+            <div class="section-header">
+                <div class="section-label">WHY CHOOSE US</div>
+                <h2 class="section-title">Excellence in Every Project</h2>
+                <p class="section-subtitle">Professional team delivering outstanding results</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-award"></i>
+                    </div>
+                    <h4>Quality</h4>
+                    <p>Excellence in every project we complete with attention to detail</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h4>Experience</h4>
+                    <p>More than 6 years providing reliable professional services</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h4>Professionalism</h4>
+                    <p>Professional team at your service every step of the way</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section id="services" class="services-section">
+        <div class="container-custom">
+            <div class="section-header">
+                <div class="section-label">WHAT WE DO</div>
+                <h2 class="section-title">Our Services</h2>
+                <p class="section-subtitle">Comprehensive solutions for all your property needs</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-hammer"></i>
+                    </div>
+                    <h4>Remodeling & Restoration</h4>
+                    <ul class="service-list">
+                        <li>Interior and exterior renovations</li>
+                        <li>Basic structural repairs</li>
+                        <li>Flooring and surface installation</li>
+                        <li>Drywall, texturing, finishing</li>
+                        <li>Post-damage repairs</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-paint-roller"></i>
+                    </div>
+                    <h4>Painting Services</h4>
+                    <ul class="service-list">
+                        <li>Interior and exterior painting</li>
+                        <li>Sealers and varnish application</li>
+                        <li>Rust removal and preparation</li>
+                        <li>Decorative painting details</li>
+                        <li>Minor repairs before painting</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <h4>Maintenance & Repairs</h4>
+                    <ul class="service-list">
+                        <li>Preventive and corrective maintenance</li>
+                        <li>Minor electrical and plumbing</li>
+                        <li>Exterior cleaning and care</li>
+                        <li>Periodic inspections</li>
+                        <li>Small remodeling projects</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-broom"></i>
+                    </div>
+                    <h4>Cleaning Services</h4>
+                    <ul class="service-list">
+                        <li>Deep residential cleaning</li>
+                        <li>Move-in / Move-out cleaning</li>
+                        <li>Kitchen and bathroom cleaning</li>
+                        <li>Surface sanitization</li>
+                        <li>Trash handling and recycling</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="about-section">
+        <div class="container-custom">
+            <div class="row align-items-center">
+                <div class="col-lg-6 about-content">
+                    <div class="section-label" style="color: var(--cyan);">WHO WE ARE</div>
+                    <h2>Santos Services</h2>
+                    <p>
+                        A company dedicated to providing comprehensive solutions for property 
+                        care and improvement. We specialize in remodeling, painting, maintenance, 
+                        and cleaning.
+                    </p>
+                    <p>
+                        Our goal is to deliver reliable, personalized services that ensure safe, 
+                        functional, and aesthetically pleasing spaces.
+                    </p>
+                    <div class="mv-grid">
+                        <div class="mv-card">
+                            <h5>Mission</h5>
+                            <p>To provide complete remodeling, maintenance, and cleaning services, creating functional, safe, and attractive spaces.</p>
+                        </div>
+                        <div class="mv-card">
+                            <h5>Vision</h5>
+                            <p>To be recognized as the most reliable and professional choice for residential and commercial services.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <img src="./img/aboutUs.png" alt="About Us" style="width:100%; border-radius:30px;">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- GALLERY -->
+    <section id="gallery" class="gallery-section">
+        <div class="container-custom">
+            <div class="section-header">
+                <div class="section-label">OUR WORK</div>
+                <h2 class="section-title">Before & After</h2>
+                <p class="section-subtitle">See the transformation we bring to every project</p>
+            </div>
+            <div class="gallery-grid">
+                <div class="gallery-item"><img src="./img/1.jpg" alt="Project 1"></div>
+                <div class="gallery-item"><img src="./img/2.jpg" alt="Project 2"></div>
+                <div class="gallery-item"><img src="./img/3.jpg" alt="Project 3"></div>
+                <div class="gallery-item"><img src="./img/4.jpg" alt="Project 4"></div>
+                <div class="gallery-item"><img src="./img/5.jpg" alt="Project 5"></div>
+                <div class="gallery-item"><img src="./img/6.jpg" alt="Project 6"></div>
+                <div class="gallery-item"><img src="./img/7.jpg" alt="Project 7"></div>
+                <div class="gallery-item"><img src="./img/8.jpg" alt="Project 8"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="contact-section">
+        <div class="container-custom">
+            <div class="contact-wrapper">
+                <div class="contact-left">
+                    <h2>Get In Touch</h2>
+                    <p>We're here to help with all your property needs</p>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-user"></i>
+                            </div>
+                            <div>
+                                <h5>OWNER</h5>
+                                <p>Gregorio Santos</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div>
+                                <h5>PHONE</h5>
+                                <p>
+                                    <a href="tel:619-865-9807">619-865-9807</a><br>
+                                    <a href="tel:760-554-2024">760-554-2024</a>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div>
+                                <h5>EMAIL</h5>
+                                <p><a href="mailto:santosservicesesc@gmail.com">santosservicesesc@gmail.com</a></p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div>
+                                <h5>ADDRESS</h5>
+                                <p>1211 Montros Place, Escondido, CA 92027</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-right">
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3342.7658542536745!2d-117.08629!3d33.12197!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80dbf3e3e3e3e3e3%3A0x1234567890!2s1211%20Montros%20Pl%2C%20Escondido%2C%20CA%2092027!5e0!3m2!1sen!2sus!4v1234567890"
+                        loading="lazy">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-grid">
+            <div>
+                <h5>SANTOS SERVICES</h5>
+                <p>"More than service, we add value to your space"</p>
+            </div>
+            <div>
+                <h5>Quick Links</h5>
+                <ul class="footer-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#gallery">Gallery</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+            <div>
+                <h5>Services</h5>
+                <ul class="footer-links">
+                    <li><a href="#services">Remodeling</a></li>
+                    <li><a href="#services">Painting</a></li>
+                    <li><a href="#services">Maintenance</a></li>
+                    <li><a href="#services">Cleaning</a></li>
+                </ul>
+            </div>
+            <div>
+                <h5>Contact</h5>
+                <ul class="footer-links">
+                    <li>619-865-9807</li>
+                    <li>760-554-2024</li>
+                    <li>santosservicesesc@gmail.com</li>
+                    <li>Escondido, CA 92027</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Santos Services. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
